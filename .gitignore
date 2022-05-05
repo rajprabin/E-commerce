@@ -1,4 +1,4 @@
-./nodemodule
-./src
-.env
-.gitignore
+./node_module
+
+*.env
+package-lock.json

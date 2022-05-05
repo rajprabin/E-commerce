@@ -42,7 +42,7 @@ module.exports = class UserController {
     const response = await userService.getUser(req.query.id, req.query.search, parseInt(req.query.nameLength));
     if (!response) return Handler.notFound("Not Found", false, res);
     return Handler.success("Founded Users", response, res);
-  } //get all user,between user & pagination
+  } //get all new user,between user using limit skip  & using date
 
 
   async getAllUser(req, res) {
@@ -54,10 +54,13 @@ module.exports = class UserController {
       startDate,
       endDate
     } = req.query;
-    [New, pageSize, startIndex, startDate, endDate] = [New, pageSize, startIndex, endIndex, startDate, endDate].map(Number);
+    [New, pageSize, startIndex] = [New, pageSize, startIndex].map(Number);
     let response = New ? await userService.getNewUser(New) : pageSize || startIndex ? await userService.getPagination({
       pageSize,
       startIndex
+    }) : startDate || endDate ? await userService.getPagination({
+      startDate,
+      endDate
     }) : await userService.getAllUser();
     if (!response) return Handler.notFound("Not Found");
     return Handler.success("Users", response, res);

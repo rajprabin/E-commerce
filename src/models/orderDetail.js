@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const { userAdressSchema } = require('./user');
-orderDetailSchema =  mongoose.Schema({
+let orderDetailSchema =  mongoose.Schema({
     user:{
         type:mongoose.Types.ObjectId,
         ref:'User'

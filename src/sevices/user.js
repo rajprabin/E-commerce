@@ -102,10 +102,10 @@ module.exports = class UserService {
   }
 
   async getPagination(pagination) {
-    let { pageSize, startIndex,  startDate, endDate } = pagination;
+    let { pageSize, startIndex, startDate, endDate } = pagination;
 
     let user = await UserModel.find().count();
-    console.log(user);
+
     if (startIndex >= user) {
       return "Document Not Found";
     }
@@ -136,10 +136,23 @@ module.exports = class UserService {
     };
     return pageSize && startIndex
       ? getPagination(startIndex, pageSize)
-      :pageSize || startIndex ?await UserModel.find()
-      .limit(pageSize)
-      .skip(startIndex)
-      .select(" -password -__v -isDeleted"):'NotFound'
+      : pageSize || startIndex
+      ? await UserModel.find()
+          .limit(pageSize)
+          .skip(startIndex)
+          .select(" -password -__v -isDeleted")
+      : startDate && endDate
+      ? await UserModel.find({
+          createdAt: { $gt: startDate, $lt: endDate },
+        }).select(" -password -__v -isDeleted")
+      : await UserModel.find({
+          $or: [
+            { createdAt: { $gt: startDate } },
+            { createdAt: { $lt: endDate } },
+          ],
+        })
+          .sort({ _id: -1 })
+          .select(" -password -__v -isDeleted");
     // const getPagination = (page, size) => {
     //   const limit = size ? +size : 3;
     //   const offset = page ? page * limit : 0;
