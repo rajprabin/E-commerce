@@ -5,7 +5,7 @@ module.exports={
     uri:process.env.URI,
     secretkey:process.env.SECRETKEY,
     port:process.env.PORT,
-    exp:process.env.EXPIRE,
+    exp:process.env.EXPIRY,
     Url:`http://localhost:3000`,
     email:`pravinrjpravin@gmail.com`,
     host: 'smtp.gmail.com',
