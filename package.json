@@ -4,11 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "babel src -d compiled",
-    "start": "npm run build && node compiled/server.js"
+    "start": "node compiled/server.js"
   },
   "engines": {
-    "node":"16.13.1"
+    "node": "16.13.x",
+    "npm": "8.1.x"
   },
   "keywords": [],
   "author": "",

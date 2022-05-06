@@ -29,7 +29,7 @@ app.use(express.json())
 
 routes(app)
 
-app.listen(CONFIG.port, () => {
+app.listen(CONFIG.port,"0.0.0.0", () => {
   console.log(`server is connected.... on http://localhost:${CONFIG.port}`);
   // logger.info(`Server started and running on http://localhost:${CONFIG.port}`)
 });
