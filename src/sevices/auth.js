@@ -1,5 +1,5 @@
 const handler = require('../utils/resHandler')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const Crypto = require('crypto')
 
 const TokenModel = require('../models/token')
