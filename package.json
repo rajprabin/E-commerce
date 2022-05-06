@@ -4,18 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-
     "start": "node compiled/server.js"
   },
   "engines": {
     "node": "16.13.x",
     "npm": "8.1.x"
-
-    
-  },
-  "engines": {
-    "node": "16.13.1"
-
   },
   "keywords": [],
   "author": "",
@@ -24,10 +17,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.17.10",
     "@babel/node": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
     "babel": "^6.23.0",
     "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
