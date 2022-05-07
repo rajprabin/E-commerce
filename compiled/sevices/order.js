@@ -2,6 +2,8 @@
 
 const handler = require('../utils/resHandler');
 
+const MyOrderModel = require('../models/Myorder');
+
 const OrderDetail = require('../models/orderDetail');
 
 const OrderItem = require('../models/orderItem');
@@ -15,6 +17,13 @@ module.exports = class OrderService {
   async create(order) {
     const Order = await new OrderModel(order);
     return Order.save();
+  } //user my order
+
+
+  async getMyOrder(userId) {
+    return await MyOrderModel.findOne({
+      userId: userId
+    }).populate('product', 'title price -_id').select('-_id -__v -createdAt -updatedAt');
   } //to change order
 
 

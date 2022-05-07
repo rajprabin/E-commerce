@@ -1,6 +1,6 @@
 "use strict";
 
-const CartController = require('../controllers/Cart');
+const CartController = require('../controllers/cart');
 
 const cartController = new CartController(); //middleware
 

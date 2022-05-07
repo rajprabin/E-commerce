@@ -1,7 +1,5 @@
 "use strict";
 
-const myOrder = require("./Myorder");
-
 const order = require("./order");
 
 const cart = require("./cart");
@@ -15,7 +13,6 @@ const auth = require("./auth");
 const error = require("../../../middlewares/v1/errorhandler");
 
 module.exports = app => {
-  app.use("/api/myOrder", myOrder);
   app.use("/api/order", order);
   app.use("/api/cart", cart);
   app.use("/api/product", product);

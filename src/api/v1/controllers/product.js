@@ -6,6 +6,7 @@ const productService = new ProductService()
 
 module.exports = class ProductController{
    async create(req,res){
+     req.body.img = req.file.path
     let response  = await productService.create(req.body)
     if(!response) return Handler.noContent('Enter valid credential',false,res )
     response = _.pick(response,['name','desc','SKU','category_id','inventory_id','price','discount_id'])

@@ -1,16 +1,6 @@
 "use strict";
 
-const mongoose = require("mongoose"); // const productSchema = new mongoose.Schema({
-//   product: {
-//     type: mongoose.Types.ObjectId,
-//     ref: "Product",
-//   },
-//   quantity: {
-//     type: Number,
-//     default: 1,
-//   },
-// });
-
+const mongoose = require("mongoose");
 
 const cartSchema = mongoose.Schema({
   sessionId: {
@@ -23,19 +13,7 @@ const cartSchema = mongoose.Schema({
   },
   quantity: {
     type: Number
-  } // userId: {
-  //   type: mongoose.Types.ObjectId,
-  //   ref: "User",
-  //   required:true
-  // },
-  // product: [productSchema],
-  // totalPrice: {
-  //   type: Number,
-  //  required: function () {
-  //    return this.product;
-  //  },
-  // },
-
+  }
 }, {
   timestamps: true
 });

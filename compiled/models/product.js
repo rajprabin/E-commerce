@@ -1,36 +1,6 @@
 "use strict";
 
-const mongoose = require("mongoose"); // const productSchema = new mongoose.Schema({
-//       title:{
-//             type:String,
-//             required:true
-//       },
-//       description:{
-//             type:String,
-//             required:true
-//       },
-//       img:{
-//             type:String,
-//             required:true
-//       },
-//       categories:{
-//             type:Array,
-//           // required:true
-//       },
-//       size:{
-//            type:Array,
-//           // required:true
-//       },
-//       color:{
-//             type:Array,
-//             required:true
-//       },
-//       price:{
-//             type:Number,
-//             required:true
-//       },
-// },{timestamps:true})
-
+const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema({
   name: {

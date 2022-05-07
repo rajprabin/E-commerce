@@ -5,6 +5,10 @@ const ProductController = require('../controllers/product');
 const productController = new ProductController(); //middleware
 
 const {
+  uploads
+} = require('../../../utils/image');
+
+const {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin
@@ -24,7 +28,7 @@ const router = express.Router(); //CREATE => ADMIN
 //order product 
 //order Item => user 
 
-router.post('/create', [verifyTokenAndAdmin], Async(productController.create));
+router.post('/create', [verifyTokenAndAdmin, uploads.single('image')], Async(productController.create));
 router.put('/update', [verifyTokenAndAdmin], Async(productController.update));
 router.delete('/delete', [verifyTokenAndAdmin], Async(productController.delete)); // get single product BY TITLE
 

@@ -15,12 +15,14 @@ const Async = require('../../../middlewares/v1/Asynchandler');
 const express = require('express');
 
 const router = express.Router(); //CREATING THE ORDER => USER
+//show history of myorder => user
 //MODIFYING THE ORDER => USER
 //DELETE THE ORDER => USER
 //GET USER ORDER => Admin
 //GET  ALL ORDER => admin
 
 router.post('/create/:id', [verifyTokenAndAuthorization], Async(orderController.create));
+router.get('/myOrder/:id', [verifyTokenAndAuthorization], Async(orderController.getMyOrder));
 router.put('/update/:id', [verifyTokenAndAuthorization], Async(orderController.update));
 router.delete('/delete/:id', [verifyTokenAndAuthorization], Async(orderController.delete));
 router.get('/get/:id', [verifyTokenAndAdmin], Async(orderController.getOrder));

@@ -49,6 +49,14 @@ module.exports = class OrderController {
     const response = await orderService.getAllOrder();
     res.send(response);
   }
+//show myorder history
+  async getMyOrder(req, res) {
+    const id = req.user.id
+    const response = await orderService.getMyOrder(id)
+    if(!response) return Handler.notFound('Not Found',false,res)
+    return Handler.success('ok',response,res)
+
+  }
 
   //Order Item
 

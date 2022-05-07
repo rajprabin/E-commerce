@@ -2,6 +2,7 @@ const ProductController = require('../controllers/product')
 const productController = new ProductController()
 
 //middleware
+const {uploads} = require('../../../utils/image')
 const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin} = require('../../../middlewares/v1/authorize')
 const Async = require('../../../middlewares/v1/Asynchandler')
 
@@ -17,7 +18,7 @@ const router = express.Router();
 //create product attribute => admin
 //order product 
 //order Item => user 
-router.post('/create',[verifyTokenAndAdmin],Async(productController.create))
+router.post('/create',[verifyTokenAndAdmin,uploads.single('image')],Async(productController.create))
 
 router.put('/update',[verifyTokenAndAdmin],Async(productController.update))
 

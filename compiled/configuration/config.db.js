@@ -9,7 +9,7 @@ module.exports = () => {
     useNewUrlParser: true,
     useUnifiedTopology: true
   }).then(() => {
-    console.log('DBConnection..Established');
+    console.log('DBConnectionEstablished.......');
   }).catch(err => {
     console.error('SomeThingFailed..', err);
   });
