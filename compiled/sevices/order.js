@@ -2,7 +2,7 @@
 
 const handler = require('../utils/resHandler');
 
-const MyOrderModel = require('../models/Myorder');
+const MyOrderModel = require('../models/myOrder');
 
 const OrderDetail = require('../models/orderDetail');
 
