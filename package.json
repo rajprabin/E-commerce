@@ -5,11 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "babel-watch src/server.js",
-    "clean": "rmdir build /s /q && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
-    "build": "npm run clean && npm run build-babel",
+    "build": "babel -d ./build ./src -s",
     "start": "npm run build && node ./build/server.js",
-    "heroku-postbuild": "npm install"
+    "heroku-prebuild": "rm -rf node_modules && rm -rf build"
   },
   "engines": {
     "node": "16.13.x",

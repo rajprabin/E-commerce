@@ -53,7 +53,7 @@ module.exports = class AuthController {
     if (token) {
       const link = `${CONFIG.Url}/api/auth/change_password/${token.userId}/${token.token}`;
       console.log(link);
-      await sendEmail(CONFIG.email, "Password reset", link);
+      await sendEmail(CONFIG.email||email, "Password reset", link);
       res.send("password reset link sent to your email account");
     }
    

@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended:true}))
 
 routes(app)
 
-app.listen(process.env.PORT||3000,"0.0.0.0", () => {
-  console.log(`server is connected.... on http://localhost:${CONFIG.port}`);
+app.listen(CONFIG.port||3000,"0.0.0.0", () => {
+  console.log(`Server is up and running on port ${CONFIG.port}`);
   // logger.info(`Server started and running on http://localhost:${CONFIG.port}`)
 });
