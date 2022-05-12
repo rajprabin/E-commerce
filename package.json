@@ -2,9 +2,14 @@
   "name": "e-commerceproject",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node compiled/server.js"
+    "dev": "babel-watch src/server.js",
+    "clean": "rmdir build /s /q && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/server.js",
+    "heroku-postbuild": "npm install"
   },
   "engines": {
     "node": "16.13.x",

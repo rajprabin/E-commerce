@@ -27,6 +27,9 @@ DBConnection()
 //routes
 app.use(express.json())
 
+app.use(express.urlencoded({extended:true}))
+
+
 routes(app)
 
 app.listen(process.env.PORT||3000,"0.0.0.0", () => {

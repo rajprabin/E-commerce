@@ -2,8 +2,7 @@ node_module/
 
 *.env
 
-src/
-
+build/
 
 
 
