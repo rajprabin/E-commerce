@@ -7,8 +7,8 @@ const mongoose = require("mongoose");
 
 module.exports = class ProductService {
   async create(product) {
-    const Product = await new ProductModel(product);
-    return Product.save();
+    const Product = await  ProductModel.create(product);
+    return Product;
   }
   async update(...product) {
     const [id, body] = product;
@@ -22,7 +22,10 @@ module.exports = class ProductService {
   //async  updateAll()
   async delete(product) {
     await ProductModel.findByIdAndDelete(product);
+
   }
+
+
   //search by single product by id
   async getProduct(product) {
     const data = await ProductModel.aggregate([
@@ -56,12 +59,14 @@ module.exports = class ProductService {
     return data[0];
   }
   //show all unique product and its quantity
-  async getAllProduct(title) {
-   return await ProductModel.aggregate([
-      { $match: {} },
-      { $group: { _id: "$name", avalaible: { $count: {} } } },
-      { $project: { _id: 0, product: "$_id", quantity: "$avalaible" } },
-    ]);
+  async getAllProduct() {
+    return await ProductModel.find({})
+
+  //  return await ProductModel.aggregate([
+  //     { $match: {} },
+  //     { $group: { _id: "$_id", avalaible: { $count: {} } } },
+  //     { $project: { _id: 0, product: "$_id", quantity: "$avalaible" } },
+  //   ]);
   }
   //show all product in unique
   async uniqueProduct() {
