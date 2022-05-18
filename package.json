@@ -7,7 +7,7 @@
     "dev": "babel-watch src/server.js",
     "build": "babel -d ./build ./src -s",
     "start": "npm run build && node ./build/server.js",
-    "heroku-prebuild": "rm -rf node_modules && rm -rf build"
+    "heroku-postbuild": "rm -rf node_modules && rm -rf build"
   },
   "engines": {
     "node": "16.13.x",
